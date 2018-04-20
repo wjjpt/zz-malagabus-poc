@@ -25,7 +25,7 @@ def w2k(url,kclient)
             next if lastdigest == Digest::MD5.hexdigest(busjson)
             bushash = JSON.parse(busjson)
             bushash.each do |bus|
-                timestamp = DateTime.parse("#{bus["properties"]["last_update"]).to_s} #{@zone}").to_time.to_i
+                timestamp = DateTime.parse("#{bus["properties"]["last_update"].to_s} #{@zone}").to_time.to_i
                 unless lastasset["#{bus["codBus"]}"].nil?
                     next if lastasset["#{bus["codBus"]}"] == timestamp
                 end
